@@ -13,6 +13,10 @@ public class EnemyHealth : MonoBehaviour
 
     public Slider hpSlider;
 
+    public int scoreValue;
+
+    public ScoreManager sm;
+
     private void Start()
     {
         //スライダーの最大値の設定
@@ -20,6 +24,9 @@ public class EnemyHealth : MonoBehaviour
 
         //スライダーの現在値の設定
         hpSlider.value = enemyHP;
+
+        //ScoreLabelオブジェクトについているScoreManagerスクリプトにアクセスしてポイントを取得する
+        sm = GameObject.Find("ScoreLabel").GetComponent<ScoreManager>(); 
     }
 
     private void OnTriggerEnter(Collider other)
@@ -49,6 +56,9 @@ public class EnemyHealth : MonoBehaviour
 
                 //効果音を出す
                 AudioSource.PlayClipAtPoint(sound, Camera.main.transform.position);
+
+                //敵を破壊した瞬間にスコアを加算するメソッドを呼び出す
+                sm.AddScore(scoreValue);
             }
         }
     }
