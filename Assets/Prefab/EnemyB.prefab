@@ -457,7 +457,7 @@ MonoBehaviour:
   effectPrefab: {fileID: 100002, guid: 75369bb81385f4904842bf20a51c14a2, type: 3}
   sound: {fileID: 8300000, guid: 7575f4814720b4b509b55764405171f1, type: 3}
   enemyHP: 2
-  hpSlider: {fileID: 0}
+  hpSlider: {fileID: 7234576627781660623}
   scoreValue: 100
   sm: {fileID: 0}
 --- !u!114 &7234576628350124989

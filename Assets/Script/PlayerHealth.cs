@@ -9,10 +9,10 @@ public class PlayerHealth : MonoBehaviour
     public GameObject effectPrefab;
 
     public AudioClip damageSound;
-
     public AudioClip destroySound;
 
-    public int playerHP;
+    private int playerHP;
+    private int maxHP = 5;
 
     public Slider hpSlider;
 
@@ -27,6 +27,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
+        playerHP = maxHP;
+
         //スライダーの最大値の設定
         hpSlider.maxValue = playerHP;
 
@@ -103,6 +105,9 @@ public class PlayerHealth : MonoBehaviour
     void Retry()
     {
         this.gameObject.SetActive(true);
+
+        playerHP = maxHP;
+
         playerHP = 1; //ここの数字は自分が決めたプレイヤーのHP数にする
         hpSlider.value = playerHP;
 
@@ -115,5 +120,21 @@ public class PlayerHealth : MonoBehaviour
     void MutekiOff()
     {
         isMuteki = false;
+    }
+
+    //HP回復アイテム
+    public void AddHP(int amount)
+    {
+        //amount分だけHPを回復させる
+        playerHP += amount;
+
+        //最大HP以上には回復しないようにする
+        if(playerHP > maxHP)
+        {
+            playerHP = maxHP;
+        }
+
+        //HPスライダー
+        hpSlider.value = playerHP;
     }
 }

@@ -9,19 +9,41 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 pos;
 
+    public bool isMouseMove;
+
     void Update()
     {
-        //float moveH = Input.GetAxis("Horizontal") * moveSpeed;
+        float moveH = 0;
 
-        //float moveV = Input.GetAxis("Vertical") * moveSpeed;
+        float moveV = 0;
 
-        float MoveH = Input.GetAxis("Mouse X") * moveSpeed;
+        if(isMouseMove == true)
+        {
+            moveH = Input.GetAxis("Mouse X") * moveSpeed;
 
-        float MoveV = Input.GetAxis("Mouse Y") * moveSpeed;
+            moveV = Input.GetAxis("Mouse Y") * moveSpeed;
+        }
+        else
+        {
+            moveH = Input.GetAxis("Horizontal") * moveSpeed;
 
-        transform.Translate(MoveH, 0, MoveV);
+            moveV = Input.GetAxis("Vertical") * moveSpeed;
+        }
+
+        transform.Translate(moveH, 0, moveV);
 
         MoveClamp();
+
+        if(isMouseMove == true)
+        {
+            if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+            {
+                isMouseMove = false;
+                Debug.Log(isMouseMove);
+            
+            }
+        }
+
 
     }
 
