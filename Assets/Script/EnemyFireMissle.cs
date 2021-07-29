@@ -13,7 +13,7 @@ public class EnemyFireMissle : MonoBehaviour
     {
         timeCount += 1;
 
-        if(timeCount % 60 == 0)
+        if(timeCount % 100 == 0)
         {
             //“G‚Ìƒ~ƒTƒCƒ‹‚ğ¶¬‚·‚é
             GameObject enemyMissile = Instantiate(enemyMissilePrefab, transform.position, Quaternion.identity);

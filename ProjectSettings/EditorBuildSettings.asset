@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/GameStart.unity
+    path: Assets/Scenes/GameStart.unity
     guid: 0a5b6f5f2a924db429119900110c371e
   - enabled: 1
-    path: Assets/Danmaku2019.unity
+    path: Assets/Scenes/Danmaku2019.unity
     guid: 2a1bc3a7f89c3964fb3e8d9f66039f3f
   - enabled: 1
     path: Assets/GameOver.unity

@@ -15,6 +15,6 @@ public class StageName : MonoBehaviour
 
     void Update()
     {
-        stageNameText.color = Color.Lerp(stageNameText.color, new Color(1, 1, 1, 0), 0.5f * Time.deltaTime);
+        stageNameText.color = Color.Lerp(stageNameText.color, new Color(1, 1, 1, 0), Time.deltaTime);
     }
 }

@@ -12,21 +12,29 @@ public class FireMissile : MonoBehaviour
     //弾幕の効果音
     public AudioClip fireSound;
 
+    private int timeCount;
+
     void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        timeCount += 1;
+        
+        if (Input.GetButton("Jump"))
         {
-            //Prefabからミサイルオブジェクトを作成し、それをmissileという名前の箱に入れる
-            GameObject missile = Instantiate(missilePrefab, transform.position, Quaternion.identity);
+            if (timeCount % 20 == 0)
+            {
 
-            Rigidbody missileRb = missile.GetComponent<Rigidbody>();
+                //Prefabからミサイルオブジェクトを作成し、それをmissileという名前の箱に入れる
+                GameObject missile = Instantiate(missilePrefab, transform.position, Quaternion.identity);
 
-            missileRb.AddForce(transform.forward * missileSpeed);
+                Rigidbody missileRb = missile.GetComponent<Rigidbody>();
 
-            AudioSource.PlayClipAtPoint(fireSound, transform.position);
+                missileRb.AddForce(transform.forward * missileSpeed);
 
-            //発射したミサイルを２秒後に削除する
-            Destroy(missile, 2.0f);
+                AudioSource.PlayClipAtPoint(fireSound, transform.position);
+
+                //発射したミサイルを２秒後に削除する
+                Destroy(missile, 2.0f);
+            }
         }   
     }
 }

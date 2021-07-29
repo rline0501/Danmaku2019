@@ -22,6 +22,9 @@ public class PlayerHealth : MonoBehaviour
     //プレイヤーが破壊された回数のデータを入れる箱
     private int destroyCount = 0;
 
+    //無敵
+    public bool isMuteki = false;
+
     private void Start()
     {
         //スライダーの最大値の設定
@@ -33,7 +36,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("EnemyMissile"))
+        if (other.gameObject.CompareTag("EnemyMissile") && isMuteki == false)
         {
             playerHP -= 1;
             AudioSource.PlayClipAtPoint(damageSound, Camera.main.transform.position);
@@ -69,7 +72,7 @@ public class PlayerHealth : MonoBehaviour
                     SceneManager.LoadScene("GameOver");
 
                     //destroyCountをリセット
-                    destroyCount = 0;
+                    //destroyCount = 0;
                 }
             }
         }
@@ -102,5 +105,15 @@ public class PlayerHealth : MonoBehaviour
         this.gameObject.SetActive(true);
         playerHP = 1; //ここの数字は自分が決めたプレイヤーのHP数にする
         hpSlider.value = playerHP;
+
+        //何秒間無敵にするか
+        isMuteki = true;
+
+        Invoke("MutekiOff", 2.0f);
+    }
+
+    void MutekiOff()
+    {
+        isMuteki = false;
     }
 }

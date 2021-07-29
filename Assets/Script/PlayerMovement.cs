@@ -11,11 +11,15 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        float moveH = Input.GetAxis("Horizontal") * moveSpeed;
+        //float moveH = Input.GetAxis("Horizontal") * moveSpeed;
 
-        float moveV = Input.GetAxis("Vertical") * moveSpeed;
+        //float moveV = Input.GetAxis("Vertical") * moveSpeed;
 
-        transform.Translate(moveH, 0, moveV);
+        float MoveH = Input.GetAxis("Mouse X") * moveSpeed;
+
+        float MoveV = Input.GetAxis("Mouse Y") * moveSpeed;
+
+        transform.Translate(MoveH, 0, MoveV);
 
         MoveClamp();
 
@@ -30,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
         //ÇºÇÍÇºÇÍç¿ïWÇì¸óÕÇµÇΩç≈è¨ílÇ∆ç≈ëÂílÇÃä‘Ç…êßå¿Ç∑ÇÈ
         pos.x = Mathf.Clamp(pos.x, -10, 10);
-        pos.z = Mathf.Clamp(pos.z, -10, 10);
+        pos.z = Mathf.Clamp(pos.z, -5, 5);
 
         transform.position = pos;
     }
