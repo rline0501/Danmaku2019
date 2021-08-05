@@ -27,7 +27,8 @@ public class Enemy8Move : MonoBehaviour
             pos.x + Mathf.Sin(angle) * 6,
 
             //Yé≤ÇÃïù
-            pos.y + transform.position.y,
+            //pos.y + 
+            transform.position.y,
 
             //Zé≤ÇÃïù
             pos.z + plus + Mathf.Sin(angle * 2) * 2);
