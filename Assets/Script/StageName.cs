@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class StageName : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class StageName : MonoBehaviour
     {
         //Textコンポーネントにアクセスして取得する
         stageNameText = this.gameObject.GetComponent<Text>();
+
+        //現在のシーンの名前を取得してtextプロパティにセットする
+        stageNameText.text = SceneManager.GetActiveScene().name;
     }
 
     void Update()

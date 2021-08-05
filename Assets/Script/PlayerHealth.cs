@@ -20,13 +20,19 @@ public class PlayerHealth : MonoBehaviour
     public GameObject[] playerIcon;
 
     //プレイヤーが破壊された回数のデータを入れる箱
-    private int destroyCount = 0;
+    public static int destroyCount = 0;
 
     //無敵
     public bool isMuteki = false;
 
+    //ショットパワーの回復
+    public FireMissile fireMissile;
+
     private void Start()
     {
+        //この行がないと残機数データと残機数の表示数がズレてしまう
+        UpdatePlayerIcons();
+
         playerHP = maxHP;
 
         //スライダーの最大値の設定
@@ -136,5 +142,24 @@ public class PlayerHealth : MonoBehaviour
 
         //HPスライダー
         hpSlider.value = playerHP;
+    }
+
+    /// <summary>
+    /// 自機１UPアイテム
+    /// </summary>
+    /// <param name="amount"></param>
+    public void Player1UP(int amount)
+    {
+        //破壊された回数をamount分だけ減少させる
+        destroyCount -= amount;
+
+        //最大残機数を超えないようにする
+        if(destroyCount < 0)
+        {
+            destroyCount = 0;
+        }
+
+        //残機数を表示するアイコン
+        UpdatePlayerIcons();
     }
 }

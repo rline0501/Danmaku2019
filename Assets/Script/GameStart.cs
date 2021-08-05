@@ -7,6 +7,6 @@ public class GameStart : MonoBehaviour
 {
    public void OnStartButtonClicked()
     {
-        SceneManager.LoadScene("Danmaku2019");
+        SceneManager.LoadScene("Stage1");
     }
 }

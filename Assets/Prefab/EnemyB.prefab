@@ -460,6 +460,11 @@ MonoBehaviour:
   hpSlider: {fileID: 7234576627781660623}
   scoreValue: 100
   sm: {fileID: 0}
+  items:
+  - {fileID: 748588401217048382, guid: 9f15ee7b18167fa42932924d24291767, type: 3}
+  - {fileID: 2560216668172910422, guid: ae76cd54d3365ec49b2531328d542daf, type: 3}
+  - {fileID: 476040475986632087, guid: 35d1f502996bebe4b860e2d56e855817, type: 3}
+  - {fileID: 7926853671432503656, guid: f19ca02852489b4408130dda2c3c4671, type: 3}
 --- !u!114 &7234576628350124989
 MonoBehaviour:
   m_ObjectHideFlags: 0

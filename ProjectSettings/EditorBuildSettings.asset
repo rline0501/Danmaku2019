@@ -9,8 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/GameStart.unity
     guid: 0a5b6f5f2a924db429119900110c371e
   - enabled: 1
-    path: Assets/Scenes/Danmaku2019.unity
+    path: Assets/Scenes/Stage1.unity
     guid: 2a1bc3a7f89c3964fb3e8d9f66039f3f
+  - enabled: 1
+    path: Assets/Scenes/Stage2.unity
+    guid: cbf5cc596ded7554fbe8b440a382d9ed
   - enabled: 1
     path: Assets/GameOver.unity
     guid: e6991f19625317f43a057f550828c16e
